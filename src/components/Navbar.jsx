@@ -53,9 +53,14 @@ export default function Navbar() {
                 ) : (
                   <Link
                     to="/dashboard"
-                    className="flex items-center gap-1.5 px-3.5 py-1.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold transition shadow-lg shadow-rose-600/30"
+                    className="flex items-center gap-2 px-3.5 py-1.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold transition shadow-lg shadow-rose-600/30"
                   >
-                    <User className="w-4 h-4" /> Dashboard Saya
+                    {user.avatar ? (
+                      <img src={user.avatar} alt={user.name} className="w-5 h-5 rounded-full object-cover border border-white/40" />
+                    ) : (
+                      <User className="w-4 h-4" />
+                    )}
+                    <span>{user.name ? user.name.split(' ')[0] : 'Dashboard'}</span>
                   </Link>
                 )}
 
